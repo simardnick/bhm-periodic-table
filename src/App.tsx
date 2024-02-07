@@ -99,7 +99,7 @@ function App() {
           <MenuItem
             onClick={() => {
               handleClose();
-              window.open("https://cwhtable.com/", "_blank");
+              window.open("https://cwhtable.netlify.app/", "_blank");
             }}
           >
             CWH Table
