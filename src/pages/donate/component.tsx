@@ -1,5 +1,4 @@
 import { Button } from "@material-ui/core";
-import { Box } from "@material-ui/core";
 import { RouteComponentProps } from "react-router-dom";
 import ArrowRight from "@material-ui/icons/ArrowRight";
 import { donateFr, donateEn } from "./donate-data";
@@ -17,7 +16,7 @@ export const DonatePage = ({ isFrench }: IDonatePageProps) => {
     window.open("https://www.parentsfordiversity.com/donate", "_blank");
   };
   return (
-    <Box className="donate-page">
+    <div className="donate-page">
       <h1>{title}</h1>
       <div className="info">
         <p className="info-description">{description}</p>
@@ -31,6 +30,6 @@ export const DonatePage = ({ isFrench }: IDonatePageProps) => {
       <Button className="donate-button" onClick={() => onDonateClick()}>
         {buttonText}
       </Button>
-    </Box>
+    </div>
   );
 };

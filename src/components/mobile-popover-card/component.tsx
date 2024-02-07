@@ -1,7 +1,7 @@
 // TODO: this file was copied from Champaign and customized; move this Component to Pawtucket / Halifax
 import React, { PropsWithChildren, FunctionComponent } from "react";
 import "./styles.scss";
-import { Slide, Box, Dialog } from "@material-ui/core";
+import { Slide, Dialog } from "@material-ui/core";
 import clsx from "clsx";
 import { useSetBodyModalOpenClass } from "../../hooks/useSetBodyModalOpenClass";
 
@@ -59,26 +59,26 @@ export const MobilePopoverCard: FunctionComponent<IMobilePopoverCardProps> = (
         "full-screen": fullScreen,
       })}
     >
-      <Box className="mobile-popover-card-container">
+      <div className="mobile-popover-card-container">
         {headerElement && (
-          <Box className="mobile-popover-card-header">{headerElement}</Box>
+          <div className="mobile-popover-card-header">{headerElement}</div>
         )}
-        <Box className={clsx("mobile-popover-card-top-button", "left")}>
+        <div className={clsx("mobile-popover-card-top-button", "left")}>
           {topLeftButton}
-        </Box>
-        <Box className={clsx("mobile-popover-card-top-button", "right")}>
+        </div>
+        <div className={clsx("mobile-popover-card-top-button", "right")}>
           {topRightButton}
-        </Box>
-        <Box
+        </div>
+        <div
           className={clsx(
             "mobile-popover-card-content-container",
             contentClassName
           )}
         >
           {children}
-        </Box>
-        <Box className="mobile-popover-card-bottom-button">{bottomButton}</Box>
-      </Box>
+        </div>
+        <div className="mobile-popover-card-bottom-button">{bottomButton}</div>
+      </div>
     </Dialog>
   );
 };

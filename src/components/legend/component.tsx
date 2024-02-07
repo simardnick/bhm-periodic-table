@@ -1,4 +1,3 @@
-import { Box } from "@material-ui/core";
 import * as React from "react";
 import "./styles.scss";
 import { categories, frCategories } from "../../data/categories";
@@ -17,7 +16,7 @@ export const Legend = ({
 }: ILegendProps) => {
   const cats = isFrench ? frCategories : categories;
   return (
-    <Box className="legend">
+    <div className="legend">
       {cats.map((category) => {
         const className =
           selectedCategory === category.id
@@ -28,15 +27,16 @@ export const Legend = ({
             ? `${category.id} label selected`
             : `${category.id} label`;
         return (
-          <Box
+          <div
+            key={category.id}
             className="legend-item"
             onClick={() => onCategorySelected(category)}
           >
-            <Box className={className}></Box>
-            <Box className={labelClassName}>{category.name}</Box>
-          </Box>
+            <div className={className}></div>
+            <div className={labelClassName}>{category.name}</div>
+          </div>
         );
       })}
-    </Box>
+    </div>
   );
 };

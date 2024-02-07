@@ -1,4 +1,4 @@
-import { Box, Button, IconButton } from "@material-ui/core";
+import { Button, IconButton } from "@material-ui/core";
 import * as React from "react";
 import { ElementCard } from "..";
 import { jsonData } from "../../data/element-json";
@@ -46,7 +46,7 @@ export const PeriodicTable = ({
           {isFrench ? "Voir Comme Liste" :"Show List View"}
         </Button>
       )}
-      <Box className="bhm-periodic-table">
+      <div className="bhm-periodic-table">
         {sortedData.slice(0, 4).map((e: IElement) => {
           return (
             <ElementCard
@@ -72,7 +72,7 @@ export const PeriodicTable = ({
             ></ElementCard>
           );
         })}
-      </Box>
+      </div>
       {matchesMobile && (
         <MobilePopoverCard
           open={!!selectedElement}
@@ -90,21 +90,21 @@ export const PeriodicTable = ({
             </IconButton>
           }
         >
-          <Box className="element-info-popup">
+          <div className="element-info-popup">
             <img
               className="category-element-image"
               src={`./assets/${selectedElement?.imageUrl}`}
               alt={selectedElement?.name}
             />
-            <Box className="category-element-name">{selectedElement?.name}</Box>
-            <Box className="info-blurb">{selectedElement?.infoBlurb}</Box>
-            <Box
+            <div className="category-element-name">{selectedElement?.name}</div>
+            <div className="info-blurb">{selectedElement?.infoBlurb}</div>
+            <div
               className="learn-more-button"
               onClick={() => window.open(selectedElement?.urlLink, "_blank")}
             >
               {isFrench ? "Savoir Plus" : "Learn More"}
-            </Box>
-          </Box>
+            </div>
+          </div>
         </MobilePopoverCard>
       )}
     </>

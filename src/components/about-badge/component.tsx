@@ -1,4 +1,3 @@
-import { Box } from "@material-ui/core";
 import "./styles.scss";
 import clsx from "clsx";
 
@@ -8,7 +7,7 @@ export interface IAboutBadgeProps {
 
 export const AboutBadge = ({ className }: IAboutBadgeProps) => {
   return (
-    <Box className={clsx(className, "about-badge")}>
+    <div className={clsx(className, "about-badge")}>
       <span>This</span>{" "}
       <a
         target="_blank"
@@ -50,6 +49,6 @@ export const AboutBadge = ({ className }: IAboutBadgeProps) => {
         Ms. Lemon
       </a>
       <span>; teachers in Ottawa, ON, Canada.</span>
-    </Box>
+    </div>
   );
 };

@@ -1,4 +1,3 @@
-import { Box } from "@material-ui/core";
 import * as React from "react";
 import { IElement } from "../../types";
 import "./styles.scss";
@@ -19,7 +18,7 @@ export const ElementCard = ({
   const { number, category, id, name, dates } = element;
 
   return (
-    <Box
+    <div
       title="Click for more info"
       className={`element-card element-${number} ${category}`}
       onMouseEnter={() => {
@@ -32,10 +31,10 @@ export const ElementCard = ({
       }}
       onClick={() => onClick(element)}
     >
-      <Box className="element-number">{number}</Box>
-      <Box className="element-id">{id}</Box>
-      <Box className="element-name">{name}</Box>
-      <Box className="element-dates">{dates}</Box>
-    </Box>
+      <div className="element-number">{number}</div>
+      <div className="element-id">{id}</div>
+      <div className="element-name">{name}</div>
+      <div className="element-dates">{dates}</div>
+    </div>
   );
 };

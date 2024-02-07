@@ -1,4 +1,3 @@
-import { Box } from "@material-ui/core";
 import { IElement } from "../../types";
 import "./styles.scss";
 
@@ -17,7 +16,7 @@ export const ElementInfoCard = ({
 }: IElementInfoCardProps) => {
   const { number, category, id, name, dates } = element;
   return (
-    <Box
+    <div
       className={`element-info-card`}
       onClick={() => onClick && onClick(element)}
     >
@@ -29,23 +28,23 @@ export const ElementInfoCard = ({
           alt={element.name}
         />
       ) : (
-        <Box className={`element-box ${category}`}>
-          <Box className="number">{number}</Box>
-          <Box className="id">{id}</Box>
-          <Box className="name">{name}</Box>
-          <Box className="dates">{dates}</Box>
-        </Box>
+        <div className={`element-box ${category}`}>
+          <div className="number">{number}</div>
+          <div className="id">{id}</div>
+          <div className="name">{name}</div>
+          <div className="dates">{dates}</div>
+        </div>
       )}
       {element.infoBlurb ? (
-        <Box className="element-info">
-          <Box className="title">{name}</Box>
-          <Box className="info-blurb">
+        <div className="element-info">
+          <div className="title">{name}</div>
+          <div className="info-blurb">
             {element.infoBlurb.slice(0, 250)}... <i>{isFrench ? "(Cliquez pour voir plus d'informations)" :"(Click to see more info)"}</i>
-          </Box>
-        </Box>
+          </div>
+        </div>
       ) : (
-        <Box className="element-info">{name}</Box>
+        <div className="element-info">{name}</div>
       )}
-    </Box>
+    </div>
   );
 };

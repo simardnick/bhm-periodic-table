@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Switch, Route, RouteComponentProps, Link } from "react-router-dom";
 import { BrowserRouter as Router } from "react-router-dom";
 import "./App.scss";
-import { Box, IconButton, Menu, MenuItem } from "@material-ui/core";
+import { IconButton, Menu, MenuItem } from "@material-ui/core";
 import { PeriodicTable, Legend, AboutBadge } from "./components";
 import { ICategory } from "./types";
 import { useWindowSize } from "./hooks/useWindowSize";
@@ -47,13 +47,13 @@ function App() {
   const containerClass = matchesDesktop ? "desktop" : "mobile";
 
   return (
-    <Box className="app-container">
+    <div className="app-container">
       <Router>
-        <Box className={clsx(containerClass, "language-toggle")}>
-          <Box onClick={() => setIsFrench(!isFrench)}>
+        <div className={clsx(containerClass, "language-toggle")}>
+          <div onClick={() => setIsFrench(!isFrench)}>
             {isFrench ? "English" : "Français"}
-          </Box>
-        </Box>
+          </div>
+        </div>
         <IconButton
           aria-label="menu"
           className={clsx(containerClass, "menu-button")}
@@ -109,45 +109,45 @@ function App() {
           <Route
             path="/about"
             render={(browserRouterProps: RouteComponentProps) => (
-              <Box className={clsx("about-page-container", containerClass)}>
+              <div className={clsx("about-page-container", containerClass)}>
                 <AboutPage
                   isFrench={isFrench}
                   {...browserRouterProps}
                 ></AboutPage>
-              </Box>
+              </div>
             )}
           ></Route>
           <Route
             path="/download"
             render={(browserRouterProps: RouteComponentProps) => (
-              <Box className={clsx("download-page-container", containerClass)}>
+              <div className={clsx("download-page-container", containerClass)}>
                 <DownloadPage
                   isFrench={isFrench}
                   {...browserRouterProps}
                 ></DownloadPage>
-              </Box>
+              </div>
             )}
           ></Route>
           <Route
             path="/donate"
             render={(browserRouterProps: RouteComponentProps) => (
-              <Box className={clsx("donate-page-container", containerClass)}>
+              <div className={clsx("donate-page-container", containerClass)}>
                 <DonatePage
                   isFrench={isFrench}
                   {...browserRouterProps}
                 ></DonatePage>
-              </Box>
+              </div>
             )}
           ></Route>
           <Route path="/">
-            <Box className={clsx("bhm-periodic-table-app", containerClass)}>
+            <div className={clsx("bhm-periodic-table-app", containerClass)}>
               <h1 className="bhm-title">
                 {isFrench
                   ? "Tableau périodique de l'histoire des Noirs au Canada"
                   : "Periodic Table of Canadian Black History"}
               </h1>
               {showTableView ? (
-                <Box className="bhm-periodic-table-container">
+                <div className="bhm-periodic-table-container">
                   <PeriodicTable
                     isFrench={isFrench}
                     showListView={() => setShowTableView(false)}
@@ -155,7 +155,7 @@ function App() {
                       setSelectedCategory(category)
                     }
                   ></PeriodicTable>
-                  <Box className="legend-container">
+                  <div className="legend-container">
                     <Legend
                       isFrench={isFrench}
                       selectedCategory={selectedCategory}
@@ -163,8 +163,8 @@ function App() {
                         setSelectedCategory(category.id)
                       }
                     />
-                  </Box>
-                </Box>
+                  </div>
+                </div>
               ) : (
                 <CategoryTable
                   isFrench={isFrench}
@@ -181,11 +181,11 @@ function App() {
                 src="/assets/p4d_logo.png"
               ></img>
               <AboutBadge className={containerClass}></AboutBadge>
-            </Box>
+            </div>
           </Route>
         </Switch>
       </Router>
-    </Box>
+    </div>
   );
 }
 

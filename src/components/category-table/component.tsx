@@ -1,4 +1,4 @@
-import { Box, Button, IconButton } from "@material-ui/core";
+import { Button, IconButton } from "@material-ui/core";
 import * as React from "react";
 import { jsonData } from "../../data/element-json";
 import { IElement } from "../../types";
@@ -34,15 +34,15 @@ export const CategoryTable = ({
     elData[data.category].push(data);
   });
   return (
-    <Box className="bhm-category-table">
+    <div className="bhm-category-table">
       <Button className="show-table-button" onClick={() => showTableView()}>
         {isFrench ? "Voir Comme Tableau" : "Show Table View"}
       </Button>
       {categories.map((cat) => (
-        <Box key={cat.id}>
+        <div key={cat.id}>
           <h1 key={cat.id}>{cat.name}</h1>
           {elData[cat.id].map((data) => (
-            <Box
+            <div
               className="category-element"
               onClick={() => onElementClicked(data)}
               key={data.number}
@@ -53,18 +53,18 @@ export const CategoryTable = ({
                 onCategoryHovered={() => {}}
                 onClick={() => {}}
               ></ElementCard>
-              <Box className="category-element-info">
+              <div className="category-element-info">
                 <h2 className="category-element-name">{data.name}</h2>
                 <h3 className="category-element-dates">{data.dates}</h3>
-              </Box>
+              </div>
               {/* <img
                 className="category-element-image"
                 src={`./assets/${data.imageUrl}`}
                 alt={data.name}
               /> */}
-            </Box>
+            </div>
           ))}
-        </Box>
+        </div>
       ))}
       <MobilePopoverCard
         open={!!open}
@@ -82,21 +82,21 @@ export const CategoryTable = ({
           </IconButton>
         }
       >
-        <Box className="element-info-popup">
+        <div className="element-info-popup">
           <img
             className="category-element-image"
             src={`./assets/${open?.imageUrl}`}
             alt={open?.name}
           />
-          <Box className="info-blurb">{open?.infoBlurb}</Box>
-          <Box
+          <div className="info-blurb">{open?.infoBlurb}</div>
+          <div
             className="learn-more-button"
             onClick={() => onMoreInfoClicked(open)}
           >
             {isFrench ? "Savoir Plus" : "Learn More"}
-          </Box>
-        </Box>
+          </div>
+        </div>
       </MobilePopoverCard>
-    </Box>
+    </div>
   );
 };

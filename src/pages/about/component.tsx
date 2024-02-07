@@ -1,4 +1,3 @@
-import { Box } from "@material-ui/core";
 import { RouteComponentProps } from "react-router-dom";
 import { aboutEn, aboutFr } from "./about-data";
 
@@ -20,7 +19,7 @@ export const AboutPage = ({ isFrench }: IAboutPageProps) => {
     contentEnd,
   } = lang;
   return (
-    <Box className="about-page">
+    <div className="about-page">
       <h1>{title}</h1>
       <h2>{subtitle}</h2>
       <p>
@@ -35,6 +34,6 @@ export const AboutPage = ({ isFrench }: IAboutPageProps) => {
       <p>P4D</p>
       <h2>The Impact</h2>
       <p>P4D</p> */}
-    </Box>
+    </div>
   );
 };

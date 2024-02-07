@@ -1,4 +1,3 @@
-import { Box } from "@material-ui/core";
 import { RouteComponentProps } from "react-router-dom";
 import { downloadEn, downloadFr } from "./download-data";
 
@@ -12,7 +11,7 @@ export const DownloadPage = ({ isFrench }: IDownloadPageProps) => {
   const lang = isFrench ? downloadFr : downloadEn;
   const { title, subtitle, templateTitle } = lang;
   return (
-    <Box className="download-page">
+    <div className="download-page">
       <h1>{title}</h1>
       <p>{subtitle}</p>
       {/* <p>
@@ -45,6 +44,6 @@ export const DownloadPage = ({ isFrench }: IDownloadPageProps) => {
           />
         </a>
       </p>
-    </Box>
+    </div>
   );
 };
